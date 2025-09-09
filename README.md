@@ -1,61 +1,70 @@
-**Marine Riser VIV Prediction Neural Network**
+# Marine Riser VIV Prediction using a Neural Network
 
-This project demonstrates the use of a simple feedforward neural network, built with PyTorch, to predict Vortex-Induced Vibration (VIV) characteristics of a marine riser.
+This project uses a feedforward neural network built with **PyTorch** to predict the Vortex-Induced Vibration (VIV) characteristics, specifically the RMS Amplitude, of a marine riser based on its physical and environmental parameters.
 
-📝 Overview
-The notebook trains a neural network on a dataset of marine riser parameters to predict the RMS amplitude of vibration. It includes the following key steps:
+-----
 
-Definition of a simple feedforward neural network using torch.nn.
+## 📝 Overview
 
-A training loop to optimize the model using the Adam optimizer and Mean Squared Error loss.
+Vortex-Induced Vibration is a critical phenomenon in offshore engineering, and accurately predicting its amplitude is essential for ensuring the structural integrity of marine risers. This notebook demonstrates a data-driven approach to solving this problem by:
 
-Evaluation of the model using R-squared and Root Mean Squared Error (RMSE) metrics.
+  * Loading and preprocessing riser data from an Excel file.
+  * Defining and training a simple but effective neural network.
+  * Evaluating the model's performance using standard regression metrics.
+  * Visualizing the results to provide clear insights.
+  * Offering an interactive function to make predictions on new, user-defined data.
 
-Visualization of the training process and prediction accuracy.
+-----
 
-A function to make predictions based on new user input.
+## ✨ Key Features
 
-🛠️ Technology Stack
-Python: The core programming language.
+  * **Data-Driven Prediction**: Leverages a dataset of riser parameters to learn complex, non-linear relationships.
+  * **PyTorch Implementation**: A clean and modern implementation using one of the leading deep learning frameworks.
+  * **Comprehensive Evaluation**: The model's accuracy is assessed using both **R-squared (R²)** and **Root Mean Squared Error (RMSE)**.
+  * **Rich Visualizations**: Includes plots for epoch vs. loss, predicted vs. actual values, and feature-specific performance graphs.
+  * **Interactive Prediction**: Allows users to input their own riser parameters and receive an immediate prediction for the RMS amplitude.
 
-PyTorch: For building and training the neural network.
+-----
 
-Pandas: For data manipulation and loading from the Excel file.
+## 🛠️ Technology Stack
 
-Scikit-learn: For model evaluation metrics (R-squared, RMSE) and data splitting.
+  * **Core Language**: Python 3
+  * **Deep Learning**: PyTorch
+  * **Data Handling**: Pandas, NumPy
+  * **Evaluation & Preprocessing**: Scikit-learn
+  * **Visualization**: Matplotlib
+  * **Environment**: Google Colab (recommended for GPU support)
 
-Matplotlib: For plotting and visualizing the results.
+-----
 
-Google Colab: The notebook is designed to run in a Colab environment, leveraging its GPU capabilities and integration with Google Drive.
+## 🧠 Model Architecture
 
-🚀 Getting Started
-To run this project, you can open the Riser_Prediction_Neural_Network.ipynb notebook in Google Colab.
+The neural network is a simple feedforward model with the following structure:
 
-Prerequisites
-A Google account to access Google Colab and Google Drive.
+  * **Input Layer**: 4 neurons (corresponding to `Cylinder Length`, `f_s`, `f_n`, and `ζ`)
+  * **Hidden Layer 1**: 64 neurons with a ReLU activation function.
+  * **Hidden Layer 2**: 32 neurons with a ReLU activation function.
+  * **Output Layer**: 1 neuron (predicting the `RMS Amplitude`)
 
-The dataset file (software_dataset.xlsx) uploaded to your Google Drive.
+The model is trained using the **Adam optimizer** and the **Mean Squared Error (MSE)** loss function.
 
-Installation & Setup
-Open in Colab: Open the .ipynb file in Google Colab.
+-----
 
-Mount Google Drive: Run the second code cell to mount your Google Drive. You'll be prompted to authorize access.
+## 🚀 Getting Started
 
-Update File Path: In the cell where file_path is defined, make sure the path correctly points to the location of your software_dataset.xlsx file in Google Drive.
+To run this project, open the `.ipynb` notebook in Google Colab.
 
-Python
+### **Prerequisites**
 
-file_path = '/content/gdrive/My Drive/path/to/your/software_dataset.xlsx'
-Run All Cells: You can now run all the cells in the notebook to train the model, evaluate its performance, and make new predictions.
+  * A Google account to use Google Colab and Google Drive.
+  * The project dataset (`software_dataset.xlsx`) must be uploaded to your Google Drive.
 
-📈 Results
-The model is evaluated based on its ability to predict the RMS amplitude. The performance is quantified by:
+### **Installation & Setup**
 
-R-squared (R²): Indicates the proportion of the variance in the dependent variable that is predictable from the independent variables. A value closer to 1 indicates a better fit.
-
-Root Mean Squared Error (RMSE): Measures the standard deviation of the residuals (prediction errors). A lower value indicates a better fit.
-
-The notebook generates several plots to visualize the model's performance, including an epoch vs. loss graph and a scatter plot of predicted vs. actual values.
-
-🔮 Making Predictions
-The final section of the notebook provides an interactive function where you can input new riser parameters (Cylinder Length, f_s, f_n, and ζ) and get an instant prediction for the RMS amplitude.
+1.  **Open in Colab**: Launch the `.ipynb` file in your Google Colab environment.
+2.  **Mount Google Drive**: Run the second code cell in the notebook. You will be prompted to authorize access to your Google Drive.
+3.  **Update File Path**: Locate the cell where the `file_path` is defined and ensure it points to the correct location of your `software_dataset.xlsx` in your Google Drive.
+    ```python
+    file_path = '/content/gdrive/My Drive/path/to/your/software_dataset.xlsx'
+    ```
+4.  **Run the Notebook**: You can now execute all cells sequentially (`Runtime > Run all`) to load the data, train the model, and see the results.
