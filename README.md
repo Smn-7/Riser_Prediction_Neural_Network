@@ -1,4 +1,5 @@
-Marine Riser VIV Prediction Neural Network
+**Marine Riser VIV Prediction Neural Network**
+
 This project demonstrates the use of a simple feedforward neural network, built with PyTorch, to predict Vortex-Induced Vibration (VIV) characteristics of a marine riser.
 
 📝 Overview
